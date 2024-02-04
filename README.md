@@ -7,4 +7,4 @@
 
 # Komentari
 
-- Profesore, zaboravili ste da postavite kod Minesweepara sa časa na učionicu
+- Profesore, niste postavili kod Minesweepera pisan na času na učionicu

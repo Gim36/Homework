@@ -5,4 +5,6 @@
 - 03 - Implementacija steka pomoću vektora (+ Jovan)
 - 04 - Minesweeper sa Petlje urađen do kraja (ovde već ne...)
 
-<!-- Profesore, zaboravili ste da postavite kod Minesweepara sa časa na učionicu -->
+# Komentari
+
+- Profesore, zaboravili ste da postavite kod Minesweepara sa časa na učionicu

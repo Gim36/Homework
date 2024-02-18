@@ -18,7 +18,7 @@ void dfsR(int i, int j, int numBombs[][N], int result[][N]) {
         for (auto x : shift) {
             int iNext = i + x.first;
             int jNext = j + x.second;
-            if (isField(iNext, jNext) && result[iNext][jNext] == -1 && numBombs[iNext][jNext] != -1) {
+            if (isField(iNext, jNext) && result[iNext][jNext] == -1) {
                 dfsR(iNext, jNext, numBombs, result);
             }
         }

@@ -2,13 +2,12 @@
 
 Datumi nisu obavezno precizni
 
-Svi trenutno ne pregledani na početku su otvoreni
+Svi trenutno ne pregledani u početku su otvoreni
 
 <details open>
   <summary>02.15.2024.</summary>
 
-- 05 - [Dužina najdužeg prohodnog puta](https://petlja.org/biblioteka/r/Zbirka2/najduzi_prohodan_put)
-
+- 05 - [Dužina najdužeg prohodnog puta](https://petlja.org/biblioteka/r/Zbirka2/najduzi_prohodan_put) (Petlja)
 </details>
 
 <details>
@@ -18,5 +17,4 @@ Svi trenutno ne pregledani na početku su otvoreni
 - 02 - Implementacija reda pomoću liste (+ Jovan)
 - 03 - Implementacija steka pomoću vektora (+ Jovan)
 - 04 - Minesweeper sa Petlje urađen do kraja (ovde već ne...)
-
 </details>

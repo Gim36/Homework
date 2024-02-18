@@ -1,6 +1,7 @@
 # Zadaci
 
 Datumi nisu obavezno precizni
+
 Svi trenutno ne pregledani su otvoreni
 
 <details open>

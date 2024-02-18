@@ -2,7 +2,7 @@
 
 Datumi nisu obavezno precizni
 
-Svi trenutno ne pregledani u početku su otvoreni
+Svi ne pregledani datumi u početku su otvoreni
 
 <details open>
   <summary>02.15.2024.</summary>

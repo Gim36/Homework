@@ -1,4 +1,7 @@
-# Zadaci (datumi nisu obavezno precizni)
+# Zadaci
+
+Datumi nisu obavezno precizni
+Svi trenutno ne pregledani su otvoreni
 
 <details open>
   <summary>02.15.2024.</summary>

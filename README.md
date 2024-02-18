@@ -2,7 +2,8 @@
 
 <details open>
   <summary>02.15.2024.</summary>
-  - 05 - [Dužina najdužeg prohodnog puta](https://petlja.org/biblioteka/r/Zbirka2/najduzi_prohodan_put)
+
+- 05 - [Dužina najdužeg prohodnog puta](https://petlja.org/biblioteka/r/Zbirka2/najduzi_prohodan_put)
 </details>
 
 <details>

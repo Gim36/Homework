@@ -22,20 +22,8 @@ int main() {
     for (int j = m - 1; j >= 0; j--) {
         if (matrix[n - 1][j] == '.') {
             grid[n - 1][j] = 1;
-
-            if (matrix[n - 2][j] == '.') {
-                grid[n - 2][j] = 1;
-            } else {
-                grid[n - 2][j] = 0;
-            }
         } else {
-            grid[n - 1][j] = 0;
-
-            if (matrix[n - 2][j] == '.') {
-                grid[n - 2][j] = 2;
-            } else {
-                grid[n - 2][j] = 0;
-            }
+            grid[n - 1][j] = 3;
         }
     }
 
@@ -49,43 +37,34 @@ int main() {
         // cout << endl;
         for (int j = m - 1; j >= 0; j--) {
             if (matrix[i][j] == '.') {
-                if (i > 0) {
-                    if (grid[i][j] == 0 || matrix[i - 1][j] == 'x') {
-                        grid[i - 1][j] = 0;
+                if (grid[i + 1][j] == 1) {
+                    grid[i][j] = 1;
+                } else {
+                    if (grid[i + 1][j] == 3) {
+                        if (j < m - 1 && grid[i][j + 1] == 1)
+                            grid[i][j] = 1;
+                        else
+                            grid[i][j] = 2;
                     } else {
-                        grid[i - 1][j] = 1;
+                        grid[i][j] = 0;
                     }
                 }
             } else {
-                grid[i][j] = 0;
-
-                if (i > 0) {
-                    if (matrix[i - 1][j] == '.') {
-                        grid[i - 1][j] = 2;
-                    } else {
-                        grid[i - 1][j] = 0;
-                    }
-                }
+                grid[i][j] = 3;
             }
 
-            if (j > 0 && grid[i][j - 1] == 2) {
+            if ((grid[i][j] != 2 && j < m - 1) || j == 0) {
+                int k = j + 1, num = 0;
+                if (j == 0 && grid[i][j] == 2) {
+                    grid[i][j] = 0;
+                }
                 if (grid[i][j] == 1) {
-                    grid[i][j - 1] = 1;
+                    num = 1;
                 } else {
-                    grid[i][j - 1] = 3;
+                    num = 0;
                 }
-            }
-
-            if ((grid[i][j] != 3 && j < m - 1) || j == 0) {
-                int k = j + 1;
-                if (j == 0) k = j;
-                while (grid[i][k] == 3) {
-                    if (grid[i][j] == 1) {
-                        grid[i][k] = 1;
-                    } else {
-                        grid[i][k] = 0;
-                        if (i > 0) grid[i - 1][k] = 0;
-                    }
+                while (grid[i][k] == 2) {
+                    grid[i][k] = num;
                     k++;
                 }
             }
@@ -94,17 +73,17 @@ int main() {
 
     // for (int i = 0; i < n; i++) {
     //     for (int j = 0; j < m; j++) {
-    //         if (matrix[i][j] == 'x')
-    //             cout << "x";
-    //         else
-    //             cout << grid[i][j];
+    //         cout << grid[i][j];
     //     }
     //     cout << endl;
     // }
 
     for (int j = 0; j < m; j++) {
-        // if (grid[0][j] == 3 || grid[0][j] == 2) grid[0][j] = 1;
-        cout << grid[0][j];
+        if (grid[0][j] == 3) {
+            cout << 0;
+        } else {
+            cout << grid[0][j];
+        }
     }
 
     return 0;

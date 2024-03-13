@@ -4,6 +4,10 @@
 
 using namespace std;
 
+pair<int, int> minField(pair<int, int> fieldOne, pair<int, int> fieldTwo, vector<vector<int>>& grid) {
+    return (grid[fieldOne.first][fieldOne.second] <= grid[fieldTwo.first][fieldTwo.second]) ? fieldOne : fieldTwo;
+}
+
 void printPath(int i, int j, vector<vector<int>>& grid, stack<pair<int, int>>& result) {
     if (j == 0) {
         while (!result.empty()) {
@@ -16,17 +20,9 @@ void printPath(int i, int j, vector<vector<int>>& grid, stack<pair<int, int>>& r
 
     int up = (i - 1 + grid.size()) % grid.size();
     int down = (i + 1) % grid.size();
-    int value = min(grid[i][j - 1], min(grid[up][j - 1], grid[down][j - 1]));
-    if (value == grid[i][j - 1]) {
-        result.push({i, j - 1});
-        printPath(i, j - 1, grid, result);
-    } else if (value == grid[up][j - 1]) {
-        result.push({up, j - 1});
-        printPath(up, j - 1, grid, result);
-    } else {
-        result.push({down, j - 1});
-        printPath(down, j - 1, grid, result);
-    }
+    pair<int, int> value = minField({i, j - 1}, minField({up, j - 1}, {down, j - 1}, grid), grid);
+    result.push(value);
+    printPath(value.first, value.second, grid, result);
 }
 
 int main() {

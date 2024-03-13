@@ -29,7 +29,6 @@ int main() {
                 switch (grid[j]) {
                     int k;
                     case 1:
-                        grid[j] = 1;
                         k = j - 1;
                         while (k >= 0 && grid[k] == 2) {
                             grid[k] = 1;

@@ -2,7 +2,7 @@
 
 Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni
 
-<details>
+<details open>
   <summary>04.04.2024.</summary>
 
 - 01 - [Labyrinth](https://cses.fi/problemset/task/1193) (CSES)

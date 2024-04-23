@@ -1,8 +1,15 @@
 # Zadaci
 
-Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni
+Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
 
 <details open>
+  <summary>04.23.2024.</summary>
+
+- 01 - [Pećine](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/pecine) (Petlja)
+- 02 - [Korensko drvo](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/korensko_drvo) (Petlja)
+</details>
+
+<details>
   <summary>04.04.2024.</summary>
 
 - 01 - [Labyrinth](https://cses.fi/problemset/task/1193) (CSES)

@@ -3,6 +3,12 @@
 Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
 
 <details open>
+  <summary>05.09.2024.</summary>
+
+- 01 - [Autobuske rute](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/kruzni_autobusi) (Petlja)
+</details>
+
+<details>
   <summary>04.23.2024.</summary>
 
 - 01 - [Pećine](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/pecine) (Petlja)

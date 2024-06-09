@@ -3,6 +3,14 @@
 Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
 
 <details open>
+  <summary>06.03.2024.</summary>
+
+- 01 - [Svi najkraći putevi u retkom grafu](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/svi_najkraci_putevi_retko) (Petlja - Warshall)
+- 02 - [Svi najkraći putevi u retkom grafu](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/svi_najkraci_putevi_retko) (Petlja - Dijkstra)
+</details>
+
+
+<details>
   <summary>05.13.2024.</summary>
 
 - 01 - [Provera ciklusa](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/provera_ciklusa) (Petlja)

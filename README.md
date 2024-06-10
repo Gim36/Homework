@@ -58,3 +58,4 @@ Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
 - 03 - Implementacija steka pomoću vektora (+ Jovan)
 - 04 - Minesweeper sa Petlje urađen do kraja (ovde već ne...)
 </details>
+odm

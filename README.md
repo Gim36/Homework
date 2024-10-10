@@ -1,8 +1,10 @@
 # Zadaci
 
 Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
+<details>
+  <summary>2024.</summary>
 
-<details open>
+<details>
   <summary>06.03.2024.</summary>
 
 - 01 - [Svi najkraći putevi u retkom grafu](https://petlja.org/sr-Latn-RS/biblioteka/r/Zbirka3/svi_najkraci_putevi_retko) (Petlja - Warshall)
@@ -57,4 +59,5 @@ Svi ne pregledani datumi (nisu obavezno precizni) u početku su otvoreni!
 - 02 - Implementacija reda pomoću liste (+ Jovan)
 - 03 - Implementacija steka pomoću vektora (+ Jovan)
 - 04 - Minesweeper sa Petlje urađen do kraja (ovde već ne...)
+</details>
 </details>

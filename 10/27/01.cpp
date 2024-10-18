@@ -88,7 +88,7 @@ void printRezervoar(Rezervoar rezervoar) {
 }
 
 int main() {
-    Rezervoar rezervoar = Rezervoar();
+    Rezervoar rezervoar;
     printRezervoar(rezervoar);  // 0 / 100, 100
 
     rezervoar.setStanje(60);

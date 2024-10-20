@@ -41,11 +41,27 @@ class Racun {
     }
 
     void setVlasnikIme(string vlasnikIme) {
-        this->vlasnikIme = vlasnikIme;
+        size_t start = vlasnikIme.find_first_not_of(' ');
+        if (start == std::string::npos) {
+            this->vlasnikIme = "";
+        } else {
+            size_t end = vlasnikIme.find_last_not_of(' ');
+            this->vlasnikIme = vlasnikIme.substr(start, end - start + 1);
+        }
+
+        if (this->vlasnikIme.length() > 20) this->vlasnikIme = this->vlasnikIme.substr(0, 20);
     }
 
     void setVlasnikPrezime(string vlasnikPrezime) {
-        this->vlasnikPrezime = vlasnikPrezime;
+        size_t start = vlasnikPrezime.find_first_not_of(' ');
+        if (start == std::string::npos) {
+            this->vlasnikPrezime = "";
+        } else {
+            size_t end = vlasnikPrezime.find_last_not_of(' ');
+            this->vlasnikPrezime = vlasnikPrezime.substr(start, end - start + 1);
+        }
+
+        if (this->vlasnikPrezime.length() > 30) this->vlasnikPrezime = this->vlasnikPrezime.substr(0, 30);
     }
 
     void setVrstaRacuna(paket vrstaRacuna) {
@@ -109,47 +125,38 @@ class Racun {
             case VIP:
                 vrstaRacuna = "VIP";
         }
-
         cout << this->vlasnikIme << " " << this->vlasnikPrezime << " - " << vrstaRacuna << " - " << this->stanje << endl;
     }
 };
 
 int main() {
-    Racun racun = Racun("Petar", "Petrovic");
+    Racun racun = Racun("   PetarPetarPetarPetarPetarPetarPetarPetarPetarPetarPetar                                                                              ", "                                                                             PetrovicPetrovicPetrovicPetrovicPetrovicPetrovicPetrovicPetrovic      ");
+    racun.uplata(123);
+    racun.stampa();  // PetarPetarPetarPetar PetrovicPetrovicPetrovicPetrov - CLASSIC - 123
+
+    racun = Racun("Petar", "Petrovic", CLASSIC);
+    racun.uplata(-123);
     racun.stampa();  // Petar Petrovic - CLASSIC - 0
 
-    racun = Racun("Petar", "Petrovic", GOLD);
-    racun.stampa();  // Petar Petrovic - GOLD - 0
-
-    racun = Racun("Petar", "Petrovic", VIP, 123);
-    racun.stampa();  // Petar Petrovic - VIP - 123
-
-    racun = Racun("Petar", "Petrovic");
-    racun.setStanje(-123);
-    cout << racun.getVlasnikIme() << " " << racun.getVlasnikPrezime() << " - " << racun.getVrstaRacuna() << " - " << racun.getStanje() << endl;
-    // Petar Petrovic - 0 - 0
-
-    racun = Racun("Petar", "Petrovic", CLASSIC, 0);
-    racun.uplata(123);
-    cout << racun.getStanje() << endl;  // 123
-
-    racun = Racun("Petar", "Petrovic", CLASSIC, 0);
-    racun.uplata(-123);
-    cout << racun.getStanje() << endl;  // 0
-
-    racun = Racun("Petar", "Petrovic", CLASSIC, 123);
+    racun = Racun("Petar", "Petrovic", GOLD, 123);
     racun.isplata(23);
-    cout << racun.getStanje() << endl;  // 100
+    racun.stampa();  // Petar Petrovic - GOLD - 100
 
-    racun = Racun("Petar", "Petrovic", CLASSIC, 10000);
+    racun = Racun("Petar", "Petrovic", VIP, -123);
+    cout << racun.getVlasnikIme() << " " << racun.getVlasnikPrezime() << " - " << racun.getVrstaRacuna() << " - " << racun.getStanje() << endl;  // Petar Petrovic - 2 - 0
+
+    racun.setVrstaRacuna(CLASSIC);
+    racun.setStanje(10000);
     racun.isplata(11000);
     cout << racun.getStanje() << endl;  // 1000
 
-    racun = Racun("Petar", "Petrovic", GOLD, 10000);
+    racun.setVrstaRacuna(GOLD);
+    racun.setStanje(10000);
     racun.isplata(11000);
     cout << racun.getStanje() << endl;  // 500
 
-    racun = Racun("Petar", "Petrovic", VIP, 10000);
+    racun.setVrstaRacuna(VIP);
+    racun.setStanje(10000);
     racun.isplata(11000);
     cout << racun.getStanje() << endl;  // 0
 

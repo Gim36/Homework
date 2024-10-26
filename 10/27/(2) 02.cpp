@@ -93,6 +93,7 @@ class Racun {
     }
 
     void isplata(float suma) {
+        if (suma < 0) return;
         if (suma >= this->stanje) {
             switch (this->vrstaRacuna) {
                 case CLASSIC:
@@ -159,6 +160,52 @@ int main() {
     racun.setStanje(10000);
     racun.isplata(11000);
     cout << racun.getStanje() << endl;  // 0
+
+    racun = Racun("Petar", "Petrovic");
+    racun.stampa();  // Petar Petrovic - CLASSIC - 0
+
+    racun = Racun("Petar", "Petrovic", GOLD);
+    racun.stampa();  // Petar Petrovic - GOLD - 0
+
+    racun = Racun("Petar", "Petrovic", VIP, 123);
+    racun.stampa();  // Petar Petrovic - VIP - 123
+
+    racun = Racun("Petar", "Petrovic");
+    racun.setStanje(-123);
+    cout << racun.getVlasnikIme() << " " << racun.getVlasnikPrezime() << " - " << racun.getVrstaRacuna() << " - " << racun.getStanje() << endl;
+    // Petar Petrovic - 0 - 0
+
+    racun = Racun("Petar", "Petrovic", CLASSIC, 0);
+    racun.uplata(123);
+    cout << racun.getStanje() << endl;  // 123
+
+    racun = Racun("Petar", "Petrovic", CLASSIC, 0);
+    racun.uplata(-123);
+    cout << racun.getStanje() << endl;  // 0
+
+    racun = Racun("Petar", "Petrovic", CLASSIC, 123);
+    racun.isplata(23);
+    cout << racun.getStanje() << endl;  // 100
+
+    racun = Racun("Petar", "Petrovic", CLASSIC, 10000);
+    racun.isplata(11000);
+    cout << racun.getStanje() << endl;  // 1000
+
+    racun = Racun("Petar", "Petrovic", GOLD, 10000);
+    racun.isplata(11000);
+    cout << racun.getStanje() << endl;  // 500
+
+    racun = Racun("Petar", "Petrovic", VIP, 10000);
+    racun.isplata(11000);
+    cout << racun.getStanje() << endl;  // 0
+
+    racun = Racun("Petar", "Petrovic", VIP, 100);
+    racun.isplata(-100);
+    cout << racun.getStanje() << endl;  // 100
+
+    racun = Racun("Petar", "Petrovic", GOLD, 100);
+    racun.isplata(0);
+    cout << racun.getStanje() << endl;  // 100
 
     return 0;
 }

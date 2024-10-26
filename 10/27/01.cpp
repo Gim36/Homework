@@ -17,17 +17,27 @@ class Rezervoar {
     }
 
     Rezervoar(float zapremina) {
-        this->setZapremina(zapremina);
+        if (zapremina <= 0) {
+            this->zapremina = defaultZapremina;
+        } else {
+            this->setZapremina(zapremina);
+        }
+
         this->stanje = defaultStanje;
     }
 
     Rezervoar(float zapremina, float stanje) {
-        this->setZapremina(zapremina);
+        if (zapremina <= 0) {
+            this->zapremina = defaultZapremina;
+        } else {
+            this->setZapremina(zapremina);
+        }
+
         this->setStanje(stanje);
     }
 
     void setZapremina(float zapremina) {
-        this->zapremina = zapremina;
+        if (zapremina > 0) this->zapremina = zapremina;
     }
 
     void setStanje(float stanje) {
@@ -49,15 +59,19 @@ class Rezervoar {
     }
 
     float dopuni(float kolicina) {
+        if (kolicina < 0) return 0;
         float stanje = this->stanje;
         float novoStanje = this->stanje + kolicina;
+
         this->stanje = (novoStanje > this->zapremina) ? this->zapremina : novoStanje;
         return this->stanje - stanje;
     }
 
     float istoci(float kolicina) {
+        if (kolicina < 0) return 0;
         float stanje = this->stanje;
         float novoStanje = this->stanje - kolicina;
+
         this->stanje = (novoStanje < 0) ? 0 : novoStanje;
         return stanje - this->stanje;
     }
@@ -116,6 +130,24 @@ int main() {
 
     rezervoar = Rezervoar(100, 30);
     cout << rezervoar.isprazni() << " " << rezervoar.getStanje() << endl;  // 30 0
+
+    rezervoar = Rezervoar(-100);
+    printRezervoar(rezervoar);  // 0 / 100, 100
+
+    rezervoar = Rezervoar(0, 1);
+    printRezervoar(rezervoar);  // 1 / 100, 99
+
+    rezervoar.setZapremina(-100);
+    printRezervoar(rezervoar);  // 1 / 100, 99
+
+    rezervoar.setZapremina(0);
+    printRezervoar(rezervoar);  // 1 / 100, 99
+
+    rezervoar = Rezervoar(100, 60);
+    cout << rezervoar.dopuni(-100) << " " << rezervoar.getStanje() << endl;  // 0 60
+
+    rezervoar = Rezervoar(100, 30);
+    cout << rezervoar.istoci(-100) << " " << rezervoar.getStanje() << endl;  // 0 30
 
     return 0;
 }

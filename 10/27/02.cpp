@@ -126,7 +126,7 @@ class Racun {
             case VIP:
                 vrstaRacuna = "VIP";
         }
-        cout << this->vlasnikIme << " " << this->vlasnikPrezime << " - " << vrstaRacuna << " - " << this->stanje << endl;
+        cout << this->vlasnikIme << " " << this->vlasnikPrezime << " – " << vrstaRacuna << " – " << this->stanje << endl;
     }
 };
 

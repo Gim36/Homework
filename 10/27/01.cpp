@@ -12,32 +12,26 @@ class Rezervoar {
 
    public:
     Rezervoar() {
-        this->stanje = defaultStanje;
         this->zapremina = defaultZapremina;
+        this->stanje = defaultStanje;
     }
 
     Rezervoar(float zapremina) {
-        if (zapremina <= 0) {
-            this->zapremina = defaultZapremina;
-        } else {
-            this->setZapremina(zapremina);
-        }
-
+        this->setZapremina(zapremina, true);
         this->stanje = defaultStanje;
     }
 
     Rezervoar(float zapremina, float stanje) {
-        if (zapremina <= 0) {
-            this->zapremina = defaultZapremina;
-        } else {
-            this->setZapremina(zapremina);
-        }
-
+        this->setZapremina(zapremina, true);
         this->setStanje(stanje);
     }
 
-    void setZapremina(float zapremina) {
-        if (zapremina > 0) this->zapremina = zapremina;
+    void setZapremina(float zapremina, bool defaultCase = false) {
+        if (zapremina > 0 && (defaultCase || zapremina >= this->stanje)) {
+            this->zapremina = zapremina;
+        } else if (defaultCase) {
+            this->zapremina = defaultZapremina;
+        }
     }
 
     void setStanje(float stanje) {
@@ -148,6 +142,16 @@ int main() {
 
     rezervoar = Rezervoar(100, 30);
     cout << rezervoar.istoci(-100) << " " << rezervoar.getStanje() << endl;  // 0 30
+
+    rezervoar = Rezervoar(20, 30);
+    printRezervoar(rezervoar);  // 20 / 20, 0
+
+    rezervoar.setZapremina(10);
+    printRezervoar(rezervoar);  // 20 / 20, 0
+
+    rezervoar = Rezervoar(200, 100);
+    rezervoar.setZapremina(50);
+    printRezervoar(rezervoar);  // 100 / 200, 100
 
     return 0;
 }

@@ -18,6 +18,19 @@ class Racun {
     paket vrstaRacuna;
     float stanje;
 
+    string beautifyString(const string &input, int maxLength) {
+        size_t start = input.find_first_not_of(' ');
+        if (start != std::string::npos) {
+            size_t end = input.find_last_not_of(' ');
+            string output = input.substr(start, end - start + 1);
+
+            if (output.length() > maxLength) output = output.substr(0, maxLength);
+            return output;
+        }
+
+        return "";
+    }
+
    public:
     Racun(string vlasnikIme, string vlasnikPrezime) {
         this->setVlasnikIme(vlasnikIme);
@@ -41,27 +54,11 @@ class Racun {
     }
 
     void setVlasnikIme(string vlasnikIme) {
-        size_t start = vlasnikIme.find_first_not_of(' ');
-        if (start == std::string::npos) {
-            this->vlasnikIme = "";
-        } else {
-            size_t end = vlasnikIme.find_last_not_of(' ');
-            this->vlasnikIme = vlasnikIme.substr(start, end - start + 1);
-        }
-
-        if (this->vlasnikIme.length() > 20) this->vlasnikIme = this->vlasnikIme.substr(0, 20);
+        this->vlasnikIme = this->beautifyString(vlasnikIme, 20);
     }
 
     void setVlasnikPrezime(string vlasnikPrezime) {
-        size_t start = vlasnikPrezime.find_first_not_of(' ');
-        if (start == std::string::npos) {
-            this->vlasnikPrezime = "";
-        } else {
-            size_t end = vlasnikPrezime.find_last_not_of(' ');
-            this->vlasnikPrezime = vlasnikPrezime.substr(start, end - start + 1);
-        }
-
-        if (this->vlasnikPrezime.length() > 30) this->vlasnikPrezime = this->vlasnikPrezime.substr(0, 30);
+        this->vlasnikPrezime = this->beautifyString(vlasnikPrezime, 30);
     }
 
     void setVrstaRacuna(paket vrstaRacuna) {
@@ -153,7 +150,8 @@ int main() {
     racun.stampa();  // Petar Petrovic - GOLD - 100
 
     racun = Racun("Petar", "Petrovic", VIP, -123);
-    cout << racun.getVlasnikIme() << " " << racun.getVlasnikPrezime() << " - " << racun.getVrstaRacuna() << " - " << racun.getStanje() << endl;  // Petar Petrovic - 2 - 0
+    cout << racun.getVlasnikIme() << " " << racun.getVlasnikPrezime() << " - " << racun.getVrstaRacuna() << " - " << racun.getStanje() << endl;
+    // Petar Petrovic - 2 - 0
 
     racun.setVrstaRacuna(CLASSIC);
     racun.setStanje(10000);
